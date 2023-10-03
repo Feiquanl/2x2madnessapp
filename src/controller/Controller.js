@@ -49,6 +49,6 @@ export function rounding(x, size) {
     } else {
         idx = Math.round(x)
     }
-    console.log('x to rounding: '+ x + ' result:' + idx)
+    //console.log('x to rounding: '+ x + ' result:' + idx)
     return idx
 }
