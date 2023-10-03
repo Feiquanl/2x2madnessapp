@@ -49,7 +49,7 @@ function App() {
         updateStep()
         if (model.board.isSolved()) {
           console.log('Yay, solved!')
-          updateMessage('Yay, you solved it!')
+          updateMessage('YAY, YOU WIN!')
         }
       } else {
         model.board.selected = group

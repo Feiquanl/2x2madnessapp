@@ -107,8 +107,20 @@
 }
 
 
-.stepCounter{
+.stepCounter {
   position: absolute;
+  padding: 10px;
+  color: green;
+  font-weight: bold;
   left: 500px;
   top: 200px;
+}
+
+.Status {
+ color: goldenrod;
+ font-size : 40px;
+ font-weight : bold;
+ position: absolute;
+ left: 500px;
+ top: 230px;
 }
