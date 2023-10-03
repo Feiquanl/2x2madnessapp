@@ -2,7 +2,7 @@ import { getSuggestedQuery } from "@testing-library/react";
 import { getSquareIdxForGroup, getOriginalColor } from "./Controller";
 
 export default function rotateHandler(model, canvasObj, direction) {
-    console.log ("try to rotate")
+    //console.log ("try to rotate")
     let selected = model.board.selected;
     if (selected != null){
         //console.log('Selected group:(' + selected.x + ',' + selected.y + ')')

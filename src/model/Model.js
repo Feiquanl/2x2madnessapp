@@ -47,7 +47,7 @@ export class Board {
         let colors = getOriginalColor(squares, group)
         const allEqual = arr => arr.every(val => val === arr[0]);
         let match = allEqual(colors)
-        console.log('color match? :' + match)
+        //console.log('color match? :' + match)
         return match
     }
 
@@ -56,7 +56,7 @@ export class Board {
         let colors = getOriginalColor(squares, group)
         const allEmpty = arr => arr.every(val => val === null);
         let isempty = allEmpty(colors)
-        console.log('group isEmpty? :' + isempty)
+        //console.log('group isEmpty? :' + isempty)
         return isempty
     }
     
@@ -76,7 +76,7 @@ export class Board {
                 }
             }
         }
-        console.log('Yes, it is solved!')
+        //console.log('Yes, it is solved!')
         return true
     }
 }

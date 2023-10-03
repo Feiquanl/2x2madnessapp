@@ -5,11 +5,9 @@ export default function redrawCanvas(model, canvasObj, appObj) {
 
     // clear the canvas area before rendering the coordinates held in state
     ctx.clearRect( 0,0, canvasObj.width, canvasObj.height);  // assume square region
-   
     let width = globalConfig.width
 
     // (1) SOMEHOW DRAW BOARD!!!
-
         for (let idxx=0; idxx< model.board.size; idxx++){
             for (let idxy = 0; idxy < model.board.size; idxy++) {
                 drawSquare(ctx, model.board.squares[idxx][idxy], width, 'blue') 
@@ -19,7 +17,6 @@ export default function redrawCanvas(model, canvasObj, appObj) {
     // (2) DRAW THE SELECTED GROUP IF ANY
     let selected = model.board.selected
     if (selected != null){
-        //console.log('Selected group:(' + selected.x + ',' + selected.y + ')')
         highlightSelcted(ctx, selected, width)
         drawCenterCircle(ctx, (selected.x)*width, (selected.y)*width, 'black', 'red')
    }
@@ -38,9 +35,6 @@ export default function redrawCanvas(model, canvasObj, appObj) {
             }
         }
     }
-
-//   console.log('good here:')
-    
 }
 
 export function drawSquare(ctx, sq, width, strokeColor) {

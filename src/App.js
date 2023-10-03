@@ -9,17 +9,20 @@ import rotateHandler from './controller/RotateController.js';
 function App() {
   const [model, setModel] = React.useState(new Model())
   const [redraw, forceRedraw] = React.useState(0);
-  const [statusMessage, updateMessage] = React.useState('');
 
   const victoryMessage = 'YAY, YOU WIN!'
+  const emptyMessage = ''
 
   const appRef = React.useRef(null);      // to be able to access "top level" app object
   const canvasRef = React.useRef(null);   // need to be able to refer to Canvas
+  const updateMessage = function () {
+    let message = model.victory ? victoryMessage : emptyMessage
+    return message
+  }
 
   // identify WHAT STATE you monitor
   React.useEffect(() => {
     redrawCanvas(model, canvasRef.current, appRef.current)
-    model.victory?updateMessage(victoryMessage):updateMessage('')
     forceRedraw(0)
   }, [model, redraw])
 
@@ -58,7 +61,7 @@ function App() {
       </div>
       
       <button className="stepCounter">Move Counter: {model.board.moveCount} </button>
-      <p className="Status">{statusMessage}</p>
+      <p className="Status">{updateMessage()}</p>
     </div>
   );
 }
