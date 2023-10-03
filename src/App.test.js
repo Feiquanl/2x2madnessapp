@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import Model from './model/Model.js'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('validate config is default one', () => {
+
+  let m = new Model()
+  expect(m.currentConfig).toEqual(0)
 });
