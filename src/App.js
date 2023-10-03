@@ -60,21 +60,29 @@ function App() {
 
   return (
     <div className="App">
-      This is <canvas tabIndex="1"
+      <p className='choose'>Choose Configeration </p>
+      <canvas tabIndex="1"
         className="App-canvas"
         ref={canvasRef}
         width="400"
         height="400"
         onClick={handleClick}
       />
-
+     
+      <div> 
       <button className="reset_button" onClick={(e) => {resetHandler(model, canvasRef.current); forceRedraw(1); resetTextDisplay()}} >Reset</button>
+      </div>
+      <div>
       <button className="choose_4x4_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 0); forceRedraw(1); resetTextDisplay()}} >4x4</button>
       <button className="choose_5x5_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 1); forceRedraw(1); resetTextDisplay()}} >5x5</button>
       <button className="choose_6x6_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 2); forceRedraw(1); resetTextDisplay()}} >6x6</button>
+      </div>
+      <div>
       <button className="clockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, true, updateStep); forceRedraw(1) }} >Clockwise</button>
       <button className="counterClockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, false, updateStep); forceRedraw(1) }} >CounterClockwise</button>
-      <button className="stepCounter">steps used: {steps} </button>
+      </div>
+      
+      <button className="stepCounter">Move Counter: {steps} </button>
       <p className="Status">{statusMessage}</p>
     </div>
   );

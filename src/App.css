@@ -14,6 +14,101 @@
 
 .reset_button {
   position: absolute;
-  left: 320px;
+  left: 50px;
+  top: 30px;
+  cursor: pointer;
+  color : red
+}
+
+.reset_button:hover {
+  background-color:darkgrey;
+}
+
+
+.choose{
+  position: absolute;
+  left: 500px;
   top: 10px;
+}
+
+.choose_4x4_button{
+  position: absolute;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px;
+  left: 500px;
+  top: 50px;
+  cursor: pointer;
+}
+
+.choose_4x4_button:hover {
+  background-color: RoyalBlue;
+}
+
+.choose_5x5_button{
+  position: absolute;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px;
+  left: 550px;
+  top: 50px;
+  cursor: pointer;
+}
+
+.choose_5x5_button:hover {
+  background-color: RoyalBlue;
+}
+
+.choose_6x6_button{
+  position: absolute;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px;
+  left: 600px;
+  top: 50px;
+  cursor: pointer;
+}
+
+.choose_6x6_button:hover {
+  background-color: RoyalBlue;
+}
+
+.clockWiseRotate{
+  position: absolute;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px;
+  left: 500px;
+  top: 100px;
+  cursor: pointer;
+}
+
+.clockWiseRotate:hover {
+  background-color: RoyalBlue;
+}
+
+.counterClockWiseRotate{
+  position: absolute;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px;
+  left: 500px;
+  top: 150px;
+  cursor: pointer;
+}
+
+.counterClockWiseRotate:hover {
+  background-color: RoyalBlue;
+}
+
+
+.stepCounter{
+  position: absolute;
+  left: 500px;
+  top: 200px;
 }
