@@ -22,20 +22,24 @@ export class Board {
         this.squares = []
         this.size = parseInt(config.numColumns)
         this.selected = null
-        //console.log(this.selected)
-        
+
+        this.squares = Array.from(Array(this.size), () => new Array(this.size));
+        for (let idxx=0; idxx< this.size; idxx++){
+            for (let idxy = 0; idxy < this.size; idxy++) {
+                this.squares[idxx][idxy] = new Square(idxx, idxy, null) // initialize to empty square
+            }
+        }
+
         for (let csq of config.baseSquares) {
             //  { "color" : "green", "row": "0", "column" : "0" },
             let sq = new Square(parseInt(csq.row), parseInt(csq.column), csq.color)
-            this.squares.push(sq)
+            this.squares[csq.row][csq.column].color = csq.color
         } 
-         
     }
 
     isAllSameColor(group){
         let squares = this.squares;
-        let sqIdx = getSquareIdxForGroup(group, this.size)
-        let colors = getOriginalColor(squares, sqIdx)
+        let colors = getOriginalColor(squares, group)
         const allEqual = arr => arr.every(val => val === arr[0]);
         let match = allEqual(colors)
         console.log('color match? :' + match)
@@ -44,24 +48,31 @@ export class Board {
 
     isEmpty(group) {
         let squares = this.squares;
-        let sqIdx = getSquareIdxForGroup(group, this.size)
-        let colors = getOriginalColor(squares, sqIdx)
-        const allWhite = arr => arr.every(val => val === 'white');
-        let isempty = allWhite(colors)
+        let colors = getOriginalColor(squares, group)
+        const allEmpty = arr => arr.every(val => val === null);
+        let isempty = allEmpty(colors)
         console.log('group isEmpty? :' + isempty)
         return isempty
     }
     
     isSolved(){
-        let squares = this.squares;
-        let colors = []
-        for (let idx =0; idx<squares.length; idx++){
-            colors.push(squares[idx].color)
+        let squares = this.squares
+        let size = this.size
+        console.log('checking if it is solved:')
+        let sq = []
+        for (let idxx =0; idxx<size; idxx++){
+            for (let idxy = 0; idxy< size; idxy++) {
+                if (squares[idxy][idxx].color != null){
+                    sq = squares[idxy][idxx]
+                    console.log('No, not yet!')
+                    console.log('working with ('+idxy+',' + idxx+')')
+                    console.log('square: (' + sq.row + ','+sq.column+',' +sq.color+')')
+                    return false
+                }
+            }
         }
-        const allWhite = arr => arr.every(val => val === 'white');
-        let solved = allWhite(colors)
-        //console.log('Yay, solved!')
-        return solved
+        console.log('Yes, it is solved!')
+        return true
     }
 }
 

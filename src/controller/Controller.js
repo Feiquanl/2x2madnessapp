@@ -16,32 +16,26 @@ export default function processClick(model, canvas, x, y) {
     
 }
 
-export function getSquareIdxForGroup(group, size){
-    let sqIdx = []
-    sqIdx.push((group.y-1)*size + group.x -1)
-    sqIdx.push((group.y-1)*size + group.x)
-    sqIdx.push((group.y)*size + group.x)
-    sqIdx.push((group.y)*size + group.x-1)
-    return sqIdx
+export function getSquareIdxForGroup(group){
+    let sqIdxx = [group.x-1, group.x, group.x, group.x-1] //x is column index
+    let sqIdxy = [group.y-1, group.y-1, group.y, group.y] //y is row index
+    return [sqIdxx, sqIdxy]
 }
 
-export function getOriginalColor(squares, selectedSq){
+export function getOriginalColor(squares, group){
     let originalColor = []
-    let n = selectedSq.length
-    let current = []
-    for (let idx = 0; idx< n; idx++){
-        current = selectedSq[idx]
-        //console.log('current: ' + current)
-        originalColor.push(squares[current].color)
+    let [idxx, idxy] = getSquareIdxForGroup(group)
+    for(let idx=0; idx<idxx.length; idx++){
+        originalColor.push(squares[idxy[idx]][idxx[idx]].color)
     }
     return originalColor
 }
 
 export function removeGroup(model, group){
     let squares = model.board.squares
-    let sqIdx = getSquareIdxForGroup(group, model.board.size)
-    for (let idx = 0; idx<sqIdx.length; idx++){
-        squares[sqIdx[idx]].color = "white"
+    let [idxx, idxy] = getSquareIdxForGroup(group, model.board.size)
+    for (let idx = 0; idx<idxx.length; idx++){
+        squares[idxy[idx]][idxx[idx]].color = null
     }
     model.board.selected = null
 }

@@ -9,9 +9,12 @@ export default function redrawCanvas(model, canvasObj, appObj) {
     let width = globalConfig.width
 
     // (1) SOMEHOW DRAW BOARD!!!
-    for (let sq of model.board.squares){
-        drawSquare(ctx, sq, width, 'blue') 
-    }
+
+        for (let idxx=0; idxx< model.board.size; idxx++){
+            for (let idxy = 0; idxy < model.board.size; idxy++) {
+                drawSquare(ctx, model.board.squares[idxx][idxy], width, 'blue') 
+            }
+        }
 
     // (2) DRAW THE SELECTED GROUP IF ANY
     let selected = model.board.selected
@@ -43,11 +46,15 @@ export default function redrawCanvas(model, canvasObj, appObj) {
 export function drawSquare(ctx, sq, width, strokeColor) {
     ctx.strokeStyle = 'black'
     ctx.lineWidth = 1
-    ctx.fillStyle = sq.color;
+    if(sq.color==null){
+        ctx.fillStyle = 'white'
+    } else{
+        ctx.fillStyle = sq.color
+    }
     //console.log('(row, column, color): (' + sq.row + ',' + sq.column+ ',' + sq.color + ')')
     ctx.fillRect(sq.column * width, sq.row * width, width, width)
-    ctx.rect(sq.column* 60, sq.row * 60, width, width)
-    ctx.strokeRect(sq.column* 60, sq.row * 60, width, width)
+    ctx.rect(sq.column* width, sq.row * width, width, width)
+    ctx.strokeRect(sq.column* width, sq.row * width, width, width)
 }
 
 

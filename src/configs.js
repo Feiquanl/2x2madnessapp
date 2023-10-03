@@ -58,7 +58,6 @@ export const config_5x5 = {
         { "color" : "yellow", "row": "4", "column" : "1" },
         { "color" : "purple", "row": "4", "column" : "2" },
         { "color" : "red", "row": "4", "column" : "3" },
-        { "color" : "white", "row": "4", "column" : "4" }
      ]
 }
 

@@ -40,15 +40,15 @@ function App() {
     let groupIdx = processClick(model, canvasRef.current, x, y)
     if (groupIdx != null) {
       let group = new Group(groupIdx[0], groupIdx[1])
-      //console.log('group: (' + group.x + ',' + group.y + ')')
 
       if (model.board.isEmpty(group)) {
         model.board.selected = null
       } else if (model.board.isAllSameColor(group)) {
         removeGroup(model, group)
         updateStep()
+        console.log('checking if it is solved...')
         if (model.board.isSolved()) {
-          console.log('Yay, solved!')
+          //console.log('Yay, solved!')
           updateMessage('YAY! YOU WIN!')
         }
       } else {
