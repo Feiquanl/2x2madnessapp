@@ -78,4 +78,3 @@ export function highlightSelcted(ctx, group, width) {
     ctx.rect(csq * 60, rsq * 60, width * 2, width * 2)
     ctx.strokeRect(csq * 60, rsq * 60, width * 2, width * 2)
 }
-

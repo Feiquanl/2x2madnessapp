@@ -4,8 +4,8 @@ import { getSquareIdxForGroup, getOriginalColor } from "../controller/Controller
 export class Group {
     constructor (x, y){
         // these are the x and y index of each group
-        this.x = x
-        this.y = y
+        this.x = x // column index
+        this.y = y  // row index
     }
 }
 
@@ -22,6 +22,7 @@ export class Board {
         this.squares = []
         this.size = parseInt(config.numColumns)
         this.selected = null
+        this.moveCount = 0
 
         this.squares = Array.from(Array(this.size), () => new Array(this.size));
         for (let idxx=0; idxx< this.size; idxx++){
@@ -35,6 +36,10 @@ export class Board {
             let sq = new Square(parseInt(csq.row), parseInt(csq.column), csq.color)
             this.squares[csq.row][csq.column].color = csq.color
         } 
+    }
+
+    selectGroup(idxx, idxy){
+        this.selected = new Group(idxx, idxy)
     }
 
     isAllSameColor(group){
@@ -63,7 +68,7 @@ export class Board {
         for (let idxx =0; idxx<size; idxx++){
             for (let idxy = 0; idxy< size; idxy++) {
                 if (squares[idxy][idxx].color != null){
-         //           sq = squares[idxy][idxx]
+                    //sq = squares[idxy][idxx]
                     //console.log('No, not yet!')
                     //console.log('working with ('+idxy+',' + idxx+')')
                     //console.log('square: (' + sq.row + ','+sq.column+',' +sq.color+')')
@@ -81,6 +86,7 @@ export default class Model {
         this.configs = [config_4x4, config_5x5, config_6x6]
         this.currentConfig = 0;
         this.board = new Board(this.configs[this.currentConfig])
+        this.victory = false
     }
 
     chooseConfiguration(idx){

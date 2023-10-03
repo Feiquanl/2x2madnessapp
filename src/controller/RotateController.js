@@ -1,14 +1,14 @@
 import { getSuggestedQuery } from "@testing-library/react";
 import { getSquareIdxForGroup, getOriginalColor } from "./Controller";
 
-export default function rotateHandler(model, canvasObj, direction, setStep) {
+export default function rotateHandler(model, canvasObj, direction) {
     console.log ("try to rotate")
     let selected = model.board.selected;
     if (selected != null){
         //console.log('Selected group:(' + selected.x + ',' + selected.y + ')')
         rotateColor(model.board.squares, selected, direction)
-        setStep();
     }
+    model.board.moveCount++
 }
 
 export function rotateColor(squares, selected, direction){
@@ -18,7 +18,7 @@ export function rotateColor(squares, selected, direction){
     let originalColor = getOriginalColor(squares, selected) // store the original color
     let n = originalColor.length
     let nextColorIdx=[]
-    console.log('original colors: ' + originalColor)
+    //console.log('original colors: ' + originalColor)
 
     for(let idx=0; idx<idxx.length; idx++){
         nextColorIdx = (idx + shift + n) % n
