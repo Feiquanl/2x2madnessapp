@@ -60,7 +60,7 @@ function App() {
       </div>
       <div>
       <button data-testid='clockWiseRotate' className="clockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, true); forceRedraw(1) }} >Clockwise</button>
-      <button data-testid='counterClockWiseRotat' className="counterClockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, false); forceRedraw(1) }} >CounterClockwise</button>
+      <button data-testid='counterClockWiseRotate' className="counterClockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, false); forceRedraw(1) }} >CounterClockwise</button>
       </div>
       
       <button data-testid="stepCounter" className="stepCounter">Move Counter: {model.board.moveCount} </button>

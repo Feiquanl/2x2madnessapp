@@ -162,7 +162,7 @@ test('mimic reset', () => {
 });
 
 
-test('renders mimic rotate', () => {
+test('mimic rotate', () => {
   const { getByText } = render(<App />);
   const moveCountElement = screen.getByTestId('stepCounter')
   expect(moveCountElement).toBeInTheDocument();
@@ -171,11 +171,17 @@ test('renders mimic rotate', () => {
   const clockwiseRotateElement= screen.getByTestId('clockWiseRotate')
   expect(clockwiseRotateElement).toBeInTheDocument();
 
+  const counterClockwiseRotateElement= screen.getByTestId('counterClockWiseRotate')
+  expect(counterClockwiseRotateElement).toBeInTheDocument();
+
   // must call 'npm install canvas'
   const canvasElement = screen.getByTestId('canvas');
   fireEvent.click(canvasElement, { clientX: 91, clientY: 146, screenX: 91, screenY: 255})
+
   fireEvent.click(clockwiseRotateElement)
-  
   expect(moveCountElement).toHaveTextContent('Move Counter: 1')
+
+  fireEvent.click(counterClockwiseRotateElement)
+  expect(moveCountElement).toHaveTextContent('Move Counter: 2')
 });
 
