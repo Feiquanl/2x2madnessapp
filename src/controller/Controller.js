@@ -1,7 +1,7 @@
 import { globalConfig } from "../configs"
 
 export default function processClick(model, canvas, x, y) {
-//    console.log("DO SOMETHING with " + x + "," + y)
+ //   console.log("DO SOMETHING with " + x + "," + y)
     let groupIdx = findSelectedGroup(x, y, model.board.size)
     if (groupIdx != null) {
         model.board.selectGroup(groupIdx[0], groupIdx[1])
@@ -62,9 +62,10 @@ export function removeGroup(model, group) {
 
 export function rounding(x, size) {
     let idx = []
+    console.log('x: ' + x)
     if (x < 1) {
         idx = 1
-    } else if (Math.round(x) > size - 1 && Math.round(x) <= size) {
+    } else if (x > size - 1 && x <= size) {
         idx = size - 1
     } else {
         idx = Math.round(x)

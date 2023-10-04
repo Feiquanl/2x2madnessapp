@@ -7,8 +7,8 @@ export default function rotateHandler(model, canvasObj, direction) {
     if (selected != null){
         //console.log('Selected group:(' + selected.x + ',' + selected.y + ')')
         rotateColor(model.board.squares, selected, direction)
+        model.board.moveCount++
     }
-    model.board.moveCount++
 }
 
 export function rotateColor(squares, selected, direction){

@@ -63,15 +63,9 @@ export class Board {
     isSolved(){
         let squares = this.squares
         let size = this.size
-        //console.log('checking if it is solved:')
-        //let sq = []
         for (let idxx =0; idxx<size; idxx++){
             for (let idxy = 0; idxy< size; idxy++) {
                 if (squares[idxy][idxx].color != null){
-                    //sq = squares[idxy][idxx]
-                    //console.log('No, not yet!')
-                    //console.log('working with ('+idxy+',' + idxx+')')
-                    //console.log('square: (' + sq.row + ','+sq.column+',' +sq.color+')')
                     return false
                 }
             }

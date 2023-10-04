@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Model, { Group } from './model/Model.js'
+import Model from './model/Model.js'
 import redrawCanvas from './boundary/Boundary.js';
-import processClick, { isGroupRemovable, removeGroup } from './controller/Controller.js';
+import processClick from './controller/Controller.js';
 import resetHandler, {chooseConfigHandler} from './controller/ResetController.js';
 import rotateHandler from './controller/RotateController.js';
 
@@ -31,6 +31,8 @@ function App() {
     // normalizing RAW point into localized canvas coordinates.
     let x = e.clientX - canvasRect.left
     let y = e.clientY - canvasRect.top
+    //console.log('canvas left: '+ canvasRect.left +', top: '+canvasRect.top)
+    //console.log(e)
 
     processClick(model, canvasRef.current, x, y)
     forceRedraw(1)
@@ -40,6 +42,7 @@ function App() {
     <div className="App">
       <p className='choose'>Choose Configuration </p>
       <canvas tabIndex="1"
+        data-testid="canvas"
         className="App-canvas"
         ref={canvasRef}
         width="400"
@@ -56,11 +59,11 @@ function App() {
       <button className="choose_6x6_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 2); forceRedraw(1) }} >6x6</button>
       </div>
       <div>
-      <button className="clockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, true); forceRedraw(1) }} >Clockwise</button>
-      <button className="counterClockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, false); forceRedraw(1) }} >CounterClockwise</button>
+      <button data-testid='clockWiseRotate' className="clockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, true); forceRedraw(1) }} >Clockwise</button>
+      <button data-testid='counterClockWiseRotat' className="counterClockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, false); forceRedraw(1) }} >CounterClockwise</button>
       </div>
       
-      <button className="stepCounter">Move Counter: {model.board.moveCount} </button>
+      <button data-testid="stepCounter" className="stepCounter">Move Counter: {model.board.moveCount} </button>
       <p className="Status">{updateMessage()}</p>
     </div>
   );
