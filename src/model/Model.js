@@ -1,5 +1,5 @@
 import { config_4x4, config_5x5, config_6x6 } from "../configs"
-import { getSquareIdxForGroup, getOriginalColor } from "../controller/Controller"
+import {getOriginalColor} from "../controller/Controller"
 
 export class Group {
     constructor (x, y){
@@ -33,8 +33,7 @@ export class Board {
 
         for (let csq of config.baseSquares) {
             //  { "color" : "green", "row": "0", "column" : "0" },
-            let sq = new Square(parseInt(csq.row), parseInt(csq.column), csq.color)
-            this.squares[csq.row][csq.column].color = csq.color
+            this.squares[parseInt(csq.row)][parseInt(csq.column)].color = csq.color
         } 
     }
 
