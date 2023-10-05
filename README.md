@@ -19,4 +19,4 @@ You can run: /br
 `npm test -- --coverage` to see the percentage of coverage \
 Sometimes, you maybe need to run: \
 `npm test --coverage --watchAll=false`  \
-or `($env:CI = "true") -and (npm test)` \
+or `($env:CI = "true") -and (npm test)` 
