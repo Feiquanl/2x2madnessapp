@@ -24,12 +24,13 @@ test('validate reset', () =>{
   let origBoard = m.board
   m.resetBoard()
   expect(m.board).not.toBe(origBoard)
+  
 });
 
 test('not solved by default', () =>{
   let m = new Model()
   expect(m.board.isSolved()).toEqual(false)
-  
+
 });
 
 test('isSolved pass case', () =>{
