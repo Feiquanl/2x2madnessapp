@@ -29,6 +29,7 @@ test('validate reset', () =>{
 test('not solved by default', () =>{
   let m = new Model()
   expect(m.board.isSolved()).toEqual(false)
+  
 });
 
 test('isSolved pass case', () =>{
@@ -144,7 +145,28 @@ test('test color counterClockWise rotate wit null', ()=>{
 // test directly from the app
 test('mimic choose configuration', () => {
   const { getByText } = render(<App />);
+  const configuration_5x5_Element = getByText(/4x4/i);
+  expect(configuration_5x5_Element).toBeInTheDocument();
+
+  // must call 'npm install canvas'
+  const canvasElement = screen.getByTestId('canvas');
+  fireEvent.click(configuration_5x5_Element);
+});
+
+test('mimic choose configuration', () => {
+  const { getByText } = render(<App />);
   const configuration_5x5_Element = getByText(/5x5/i);
+  expect(configuration_5x5_Element).toBeInTheDocument();
+
+  // must call 'npm install canvas'
+  const canvasElement = screen.getByTestId('canvas');
+  fireEvent.click(configuration_5x5_Element);
+});
+
+// test directly from the app
+test('mimic choose configuration', () => {
+  const { getByText } = render(<App />);
+  const configuration_5x5_Element = getByText(/6x6/i);
   expect(configuration_5x5_Element).toBeInTheDocument();
 
   // must call 'npm install canvas'
