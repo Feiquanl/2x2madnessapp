@@ -22,11 +22,15 @@ Pleae run:
 % npm install canvas
 
 To see the percentage of coverage you can run :
+
 % npm test -- --coverage
+
 Sometimes, you maybe need to run: 
+
 % npm test --coverage --watchAll=false
+
 % ($env:CI = "true") -and (npm test)
-\
-\
+
+
 If the coverage table doesn't show and there are some words like "No tests found related to files changed since last commit",
 please just modify "App.test.js" , even adding an empty line, it will trigger the test on the whole file.
