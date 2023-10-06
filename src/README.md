@@ -6,7 +6,7 @@ To utilize these files, create your own React application using the standard too
 
 # Copy my src folder and overwrite the original folder
 
-# Runs the App
+# Run the App
 
 In the project directory, you can run: 
 
@@ -15,16 +15,16 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-# Tests the App
+# Test the App
 
 Pleae run:
 
 % npm install canvas
 
 To see the percentage of coverage you can run :
-% npm test -- --coverage` 
+% npm test -- --coverage
 Sometimes, you maybe need to run: 
-% npm test --coverage --watchAll=false` 
+% npm test --coverage --watchAll=false
 % ($env:CI = "true") -and (npm test)
 \
 \
