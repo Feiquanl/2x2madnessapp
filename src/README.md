@@ -8,7 +8,7 @@ To utilize these files, create your own React application using the standard too
 
 # Runs the App
 
-In the project directory, you can run: \
+In the project directory, you can run: 
 
 % npm start
 
@@ -21,10 +21,12 @@ Pleae run:
 
 % npm install canvas
 
-Then you can run: /br
-`npm test -- --coverage` to see the percentage of coverage \
-Sometimes, you maybe need to run: \
-`npm test --coverage --watchAll=false` \
-or `($env:CI = "true") -and (npm test)` \
+To see the percentage of coverage you can run :
+% npm test -- --coverage` 
+Sometimes, you maybe need to run: 
+% npm test --coverage --watchAll=false` 
+% ($env:CI = "true") -and (npm test)
+\
+\
 If the coverage table doesn't show and there are some words like "No tests found related to files changed since last commit",
 please just modify "App.test.js" , even adding an empty line, it will trigger the test on the whole file.
