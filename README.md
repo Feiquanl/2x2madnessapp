@@ -23,5 +23,5 @@ Then you can run: /br
 Sometimes, you maybe need to run: \
 `npm test --coverage --watchAll=false`  \
 or `($env:CI = "true") -and (npm test)`  \
-If there are some words "No tests found related to files changed since last commit.", 
-please insert some empty space in any part, then run `npm test -- --coverage` or `npm test --coverage --watchAll=false` again.
+If the coverage table doesn't show and there are some words like "No tests found related to files changed since last commit", 
+please just modify "App.test.js" , even adding an empty line, it will trigger the test on the whole file.

@@ -29,6 +29,7 @@ test('validate reset', () =>{
 test('not solved by default', () =>{
   let m = new Model()
   expect(m.board.isSolved()).toEqual(false)
+  
 });
 
 test('isSolved pass case', () =>{
