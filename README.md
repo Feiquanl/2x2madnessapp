@@ -1,27 +1,36 @@
-# Getting Started with Create React App
+# madness starter app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To utilize these files, create your own React application using the standard tool invocation of:
 
-## Copy my src folder and overwrite the original folder
+% create-react-app madness
 
-## Available Scripts
+# Copy my src folder and overwrite the original folder
 
-In the project directory, you can run:
+# Run the App
 
-### `npm start`
+In the project directory, you can run: 
+
+% npm start
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm test`
+# Test the App
 
 Pleae run:
-`npm install canvas`
 
-Then you can run: /br
-`npm test -- --coverage` to see the percentage of coverage \
-Sometimes, you maybe need to run: \
-`npm test --coverage --watchAll=false`  \
-or `($env:CI = "true") -and (npm test)`  \
-If the coverage table doesn't show and there are some words like "No tests found related to files changed since last commit", 
+% npm install canvas
+
+To see the percentage of coverage you can run :
+
+% npm test -- --coverage
+
+Sometimes, you maybe need to run: 
+
+% npm test --coverage --watchAll=false
+
+% ($env:CI = "true") -and (npm test)
+
+
+If the coverage table doesn't show and there are some words like "No tests found related to files changed since last commit",
 please just modify "App.test.js" , even adding an empty line, it will trigger the test on the whole file.
