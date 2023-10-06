@@ -23,7 +23,6 @@ function App() {
   // identify WHAT STATE you monitor
   React.useEffect(() => {
     redrawCanvas(model, canvasRef.current, appRef.current)
-    forceRedraw(0)
   }, [model, redraw])
 
   const handleClick = (e) => {
@@ -35,7 +34,7 @@ function App() {
     //console.log(e)
 
     processClick(model, canvasRef.current, x, y)
-    forceRedraw(1)
+    forceRedraw(redraw+1)
   }
 
   return (
@@ -51,16 +50,16 @@ function App() {
       />
      
       <div> 
-      <button className="reset_button" onClick={(e) => {resetHandler(model, canvasRef.current); forceRedraw(1)}} >Reset</button>
+      <button className="reset_button" onClick={(e) => {resetHandler(model, canvasRef.current); forceRedraw(redraw+1)}} >Reset</button>
       </div>
       <div>
-      <button className="choose_4x4_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 0); forceRedraw(1) }} >4x4</button>
-      <button className="choose_5x5_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 1); forceRedraw(1) }} >5x5</button>
-      <button className="choose_6x6_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 2); forceRedraw(1) }} >6x6</button>
+      <button className="choose_4x4_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 0); forceRedraw(redraw+1) }} >4x4</button>
+      <button className="choose_5x5_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 1); forceRedraw(redraw+1) }} >5x5</button>
+      <button className="choose_6x6_button" onClick={(e) => {chooseConfigHandler(model, canvasRef.current, 2); forceRedraw(redraw+1) }} >6x6</button>
       </div>
       <div>
-      <button data-testid='clockWiseRotate' className="clockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, true); forceRedraw(1) }} >Clockwise</button>
-      <button data-testid='counterClockWiseRotate' className="counterClockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, false); forceRedraw(1) }} >CounterClockwise</button>
+      <button data-testid='clockWiseRotate' className="clockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, true); forceRedraw(redraw+1) }} >Clockwise</button>
+      <button data-testid='counterClockWiseRotate' className="counterClockWiseRotate" onClick={(e) => { rotateHandler(model, canvasRef.current, false); forceRedraw(redraw+1) }} >CounterClockwise</button>
       </div>
       
       <button data-testid="stepCounter" className="stepCounter">Move Counter: {model.board.moveCount} </button>
